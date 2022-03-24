@@ -8,6 +8,7 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="csc22100.diceroller.dicerollergui.HelloController">
     <MenuBar VBox.vgrow="NEVER">
         <Menu text="File">
+            <MenuItem fx:id="settings" text="Settings"/>
             <MenuItem fx:id="quit" text="Quit" />
         </Menu>
     </MenuBar>

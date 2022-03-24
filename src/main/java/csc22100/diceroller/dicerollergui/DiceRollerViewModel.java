@@ -21,7 +21,7 @@ public class DiceRollerViewModel {
     }
 
     public void roll() {
-        int result = service.roll(6); // What do we do with this result?
+        int result = service.roll(); // What do we do with this result?
         currentRoll.setValue(result);
         hasRoll.setValue(true);
     }

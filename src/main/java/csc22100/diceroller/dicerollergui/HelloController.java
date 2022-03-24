@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 
 public class HelloController {
+    @FXML private MenuItem settings;
+
     @FXML
     private Label roll;
 
@@ -16,12 +18,15 @@ public class HelloController {
     private Button button;
 
     @FXML
-    MenuItem quit;
+    private MenuItem quit;
 
-    DiceRollerViewModel viewModel;
+    private DiceRollerViewModel viewModel;
 
-    public void init(DiceRollerViewModel viewModel) {
+    private HelloApplication helloApplication;
+
+    public void init(DiceRollerViewModel viewModel, HelloApplication helloApplication) {
         this.viewModel = viewModel;
+        this.helloApplication = helloApplication;
         // Now, let's bind/set up the remaining things
         quit.setOnAction((ev) -> Platform.exit());
 
@@ -29,6 +34,9 @@ public class HelloController {
         roll.textProperty().bind(
                 Bindings.createStringBinding(() -> Integer.toString(viewModel.currentRoll().get()),
                         viewModel.currentRoll()));
+
+        // bind the settings option to open the settings window
+        settings.setOnAction((ev) -> helloApplication.openSettingsWindow());
     }
 
     public void onRoll(ActionEvent actionEvent) {
